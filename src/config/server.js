@@ -8,7 +8,13 @@ const { errorHandler } = require("../middleware/errorHandler");
 const { setupWebRTC } = require("../services/webRTC");
 
 const createServer = (app) => {
-  app.use(cors());
+  app.use(
+    cors({
+      origin: "https://talkie-two.vercel.app", // Replace with your frontend origin
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    }),
+  );
   app.use(helmet());
   app.use(compression());
   app.use(express.json());
