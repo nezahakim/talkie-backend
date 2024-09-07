@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  readTimeout: 15s
+  writeTimeout: 15s
+  idleTimeout: 60s
+
+database:
+  host: localhost
+  port: 5432
+  user: your_username
+  password: your_password
+  dbname: live_voice_room
+  maxOpenConns: 25
+  maxIdleConns: 25
+  maxLifetime: 5m
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
+
+auth:
+  jwtSecret: your_jwt_secret
+  jwtExpirationHrs: 24
+
+logging:
+  level: info
+  file: ./logs/app.log
+
+metrics:
+  enabled: true
+  port: 9090
