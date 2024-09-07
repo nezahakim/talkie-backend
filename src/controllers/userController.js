@@ -3,8 +3,7 @@ const { logger } = require("../utils/logger");
 
 exports.getUserProfile = async (req, res) => {
   try {
-    // const userId = req.user.userId;
-    const userId = req.userId;
+    const userId = req.user.userId;
     const result = await pool.query(
       `
       SELECT u.user_id, u.username, u.email, u.profile_picture, u.language, u.country, u.created_at,
