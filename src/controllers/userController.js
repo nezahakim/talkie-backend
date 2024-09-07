@@ -1,10 +1,12 @@
-const { pool } = require('../config/database');
-const { logger } = require('../utils/logger');
+const { pool } = require("../config/database");
+const { logger } = require("../utils/logger");
 
 exports.getUserProfile = async (req, res) => {
   try {
-    const userId = req.user.userId;
-    const result = await pool.query(`
+    // const userId = req.user.userId;
+    const userId = req.userId;
+    const result = await pool.query(
+      `
       SELECT u.user_id, u.username, u.email, u.profile_picture, u.language, u.country, u.created_at,
              COUNT(DISTINCT f.follower_user_id) AS followers_count,
              COUNT(DISTINCT f2.user_id) AS following_count,
@@ -15,17 +17,19 @@ exports.getUserProfile = async (req, res) => {
       LEFT JOIN participants p ON u.user_id = p.user_id
       WHERE u.user_id = $1
       GROUP BY u.user_id
-    `, [userId]);
+    `,
+      [userId],
+    );
 
     if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
     const user = result.rows[0];
     res.json(user);
   } catch (error) {
-    logger.error('Error fetching user profile:', error);
-    res.status(500).json({ message: 'Error fetching user profile' });
+    logger.error("Error fetching user profile:", error);
+    res.status(500).json({ message: "Error fetching user profile" });
   }
 };
 
@@ -35,18 +39,18 @@ exports.updateUserProfile = async (req, res) => {
 
   try {
     const result = await pool.query(
-      'UPDATE users SET username = $1, language = $2, country = $3, bio = $4 WHERE user_id = $5 RETURNING *',
-      [username, language, country, bio, userId]
+      "UPDATE users SET username = $1, language = $2, country = $3, bio = $4 WHERE user_id = $5 RETURNING *",
+      [username, language, country, bio, userId],
     );
 
     if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
     res.json(result.rows[0]);
   } catch (error) {
-    logger.error('Error updating user profile:', error);
-    res.status(500).json({ message: 'Error updating user profile' });
+    logger.error("Error updating user profile:", error);
+    res.status(500).json({ message: "Error updating user profile" });
   }
 };
 
@@ -56,13 +60,13 @@ exports.followUser = async (req, res) => {
 
   try {
     await pool.query(
-      'INSERT INTO followers (user_id, follower_user_id) VALUES ($1, $2)',
-      [userId, followerId]
+      "INSERT INTO followers (user_id, follower_user_id) VALUES ($1, $2)",
+      [userId, followerId],
     );
-    res.status(201).json({ message: 'User followed successfully' });
+    res.status(201).json({ message: "User followed successfully" });
   } catch (error) {
-    logger.error('Error following user:', error);
-    res.status(500).json({ message: 'Error following user' });
+    logger.error("Error following user:", error);
+    res.status(500).json({ message: "Error following user" });
   }
 };
 
@@ -72,17 +76,17 @@ exports.unfollowUser = async (req, res) => {
 
   try {
     const result = await pool.query(
-      'DELETE FROM followers WHERE user_id = $1 AND follower_user_id = $2',
-      [userId, followerId]
+      "DELETE FROM followers WHERE user_id = $1 AND follower_user_id = $2",
+      [userId, followerId],
     );
 
     if (result.rowCount === 0) {
-      return res.status(404).json({ message: 'Follow relationship not found' });
+      return res.status(404).json({ message: "Follow relationship not found" });
     }
 
-    res.json({ message: 'User unfollowed successfully' });
+    res.json({ message: "User unfollowed successfully" });
   } catch (error) {
-    logger.error('Error unfollowing user:', error);
-    res.status(500).json({ message: 'Error unfollowing user' });
+    logger.error("Error unfollowing user:", error);
+    res.status(500).json({ message: "Error unfollowing user" });
   }
 };
