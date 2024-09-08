@@ -1,8 +1,7 @@
-import pg from "pg";
-import dotenv from "dotenv";
-dotenv.config();
+const { Pool } = require("pg");
+require("dotenv").config();
 
-const pool = new pg.Pool({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
@@ -29,6 +28,20 @@ async function createTables() {
         last_login TIMESTAMP WITH TIME ZONE
       )
     `);
+
+    await client.query(`CREATE TABLE IF NOT EXISTS accounts (
+  account_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+  full_name VARCHAR(100),
+  bio TEXT,
+  hashtags TEXT[],
+  website_url VARCHAR(255),
+  social_media_links JSONB,
+  preferences JSONB,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+)
+`);
 
     // Live Sessions Table
     await client.query(`

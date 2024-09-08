@@ -4,21 +4,41 @@ const { logger } = require("../utils/logger");
 exports.getUserProfile = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const result = await pool.query(
-      `
-      SELECT u.user_id, u.username, u.email, u.profile_picture, u.language, u.country, u.created_at,
-             COUNT(DISTINCT f.follower_user_id) AS followers_count,
-             COUNT(DISTINCT f2.user_id) AS following_count,
-             COALESCE(SUM(EXTRACT(EPOCH FROM (p.left_at - p.joined_at)) / 3600), 0) AS total_listening_hours
-      FROM users u
-      LEFT JOIN followers f ON u.user_id = f.user_id
-      LEFT JOIN followers f2 ON u.user_id = f2.follower_user_id
-      LEFT JOIN participants p ON u.user_id = p.user_id
-      WHERE u.user_id = $1
-      GROUP BY u.user_id
-    `,
-      [userId],
-    );
+    const query = `SELECT 
+  u.user_id, 
+  u.username, 
+  u.email, 
+  u.profile_picture, 
+  u.language, 
+  u.country, 
+  u.created_at,
+  
+  -- Account Information
+  a.full_name, 
+  a.bio, 
+  a.hashtags, 
+  a.website_url, 
+  a.social_media_links, 
+  a.preferences,
+  
+  -- Statistics
+  COUNT(DISTINCT ls.session_id) AS total_live_rooms_created,
+  COUNT(DISTINCT p.user_id) AS total_listeners
+FROM 
+  users u
+LEFT JOIN 
+  accounts a ON u.user_id = a.user_id  -- Joining account details
+LEFT JOIN 
+  live_sessions ls ON u.user_id = ls.host_user_id  -- Counting live rooms created
+LEFT JOIN 
+  participants p ON ls.session_id = p.session_id   -- Counting distinct listeners
+WHERE 
+  u.user_id = $1
+GROUP BY 
+  u.user_id, a.full_name, a.bio, a.hashtags, a.website_url, a.social_media_links, a.preferences;
+`;
+
+    const result = await pool.query(query, [userId]);
 
     if (result.rows.length === 0) {
       return res.status(404).json({ message: "User not found" });
