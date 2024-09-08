@@ -25,3 +25,5 @@
 {"level":"error","message":"Error connecting to database: Connection terminated unexpectedly","stack":"Error: Connection terminated unexpectedly\n    at /home/runner/talkie-backend/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async connectDB (/home/runner/talkie-backend/src/config/database.js:25:5)","timestamp":"2024-09-08T16:07:07.854Z"}
 {"level":"info","message":"Server running on port 5000","timestamp":"2024-09-08T16:11:28.027Z"}
 {"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-08T16:11:34.704Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-08T18:53:17.645Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-08T18:53:22.560Z"}
