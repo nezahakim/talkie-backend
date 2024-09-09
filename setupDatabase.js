@@ -114,16 +114,33 @@ async function createTables() {
       )
     `);
 
-    // Chat Messages Table
     await client.query(`
-      CREATE TABLE IF NOT EXISTS chat_messages (
-        chat_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        session_id UUID REFERENCES live_sessions(session_id),
-        user_id UUID REFERENCES users(user_id),
-        message TEXT NOT NULL,
-        pinned BOOLEAN DEFAULT FALSE,
-        timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-      )
+
+    CREATE TABLE IF NOT EXISTS chats (
+      chat_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      chat_type VARCHAR(20) NOT NULL CHECK (chat_type IN ('private', 'community')),
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS chat_participants (
+      chat_id UUID REFERENCES chats(chat_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE CASCADE,
+      joined_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (chat_id, user_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS chat_messages (
+      message_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      chat_id UUID REFERENCES chats(chat_id) ON DELETE CASCADE,
+      user_id UUID REFERENCES users(user_id) ON DELETE SET NULL,
+      message TEXT NOT NULL,
+      pinned BOOLEAN DEFAULT FALSE,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX idx_chat_messages_chat_id ON chat_messages(chat_id);
+    CREATE INDEX idx_chat_messages_created_at ON chat_messages(created_at);
+
     `);
 
     await client.query("COMMIT");
@@ -137,3 +154,16 @@ async function createTables() {
 }
 
 createTables().catch((e) => console.error(e.stack));
+
+// const { Pool } = require("pg");
+// new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// })
+//   .query(
+//     "DO $$ DECLARE r RECORD; BEGIN FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = current_schema()) LOOP EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' CASCADE'; EXECUTE 'DROP TABLE ' || quote_ident(r.tablename) || ' CASCADE'; END LOOP; END $$;",
+//   )
+//   .then(() => console.log("All tables truncated and deleted"))
+//   .catch((err) => console.error("Error:", err));

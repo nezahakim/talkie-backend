@@ -3,28 +3,6 @@ const jwt = require("jsonwebtoken");
 const { pool } = require("../config/database");
 const { logger } = require("../utils/logger");
 
-// exports.register = async (req, res) => {
-//   const { username, email, password, language, country } = req.body;
-
-//   try {
-//     const hashedPassword = await bcrypt.hash(password, 10);
-//     const result = await pool.query(
-//       "INSERT INTO users (username, email, password_hash, language, country) VALUES ($1, $2, $3, $4, $5) RETURNING user_id, username, email",
-//       [username, email, hashedPassword, language, country],
-//     );
-
-//     const user = result.rows[0];
-//     const token = jwt.sign({ userId: user.user_id }, process.env.JWT_SECRET, {
-//       expiresIn: "1d",
-//     });
-
-//     res.status(201).json({ user, token });
-//   } catch (error) {
-//     logger.error("Error in user registration:", error);
-//     res.status(500).json({ message: "Error registering user" });
-//   }
-// };
-
 exports.register = async (req, res) => {
   const {
     username,
