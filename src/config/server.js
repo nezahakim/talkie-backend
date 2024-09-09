@@ -13,7 +13,11 @@ const API =
 const createServer = (app) => {
   app.use(
     cors({
-      origin: ["https://talkie-two.vercel.app", API],
+      origin: [
+        "https://talkie-two.vercel.app",
+        "wss://talkie-back.vercel.app",
+        API,
+      ],
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
     }),
