@@ -106,6 +106,21 @@ exports.getCommunityDetails = async (req, res) => {
   }
 };
 
+exports.getAllComminties = async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM community");
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "No Community Founded" });
+    }
+
+    res.json(result.rows[0]);
+  } catch (error) {
+    logger.error("Error fetching communities details:", error);
+    res.status(500).json({ message: "Error fetching community details" });
+  }
+};
+
 exports.updateCommunity = async (req, res) => {
   const { communityId } = req.params;
   const { name, description } = req.body;
