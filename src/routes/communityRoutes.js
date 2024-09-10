@@ -10,12 +10,12 @@ const {
   leaveCommunity,
   getCommunityMembers,
   updateMemberRole,
-  getAllComminties,
+  getAllCommunities,
 } = require("../controllers/communityController");
 
 // Create a new community
 router.post("/", auth, createCommunity);
-router.get("/", auth, getAllComminties);
+router.get("/", auth, getAllCommunities);
 
 // Get community details
 router.get("/:communityId", auth, getCommunityDetails);

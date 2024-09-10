@@ -106,7 +106,7 @@ exports.getCommunityDetails = async (req, res) => {
   }
 };
 
-exports.getAllComminties = async (req, res) => {
+exports.getAllCommunities = async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM community");
 
