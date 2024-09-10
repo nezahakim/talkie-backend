@@ -42,7 +42,6 @@ const { logger } = require("../utils/logger");
 //   }
 // };
 
-
 exports.createCommunity = async (req, res) => {
   const { name, description } = req.body;
   const userId = req.user.userId; // Assuming this is already a UUID
@@ -52,39 +51,40 @@ exports.createCommunity = async (req, res) => {
       `INSERT INTO community (name, description, created_by) 
        VALUES ($1, $2, $3::uuid) 
        RETURNING *`,
-      [name, description, userId]
+      [name, description, userId],
     );
 
-     const communityId = result.rows[0].community_id;
-    
+    const communityId = result.rows[0].community_id;
+
     //Add the creator as a member with 'creator' role
-        await pool.query(
-          "INSERT INTO community_memberships (community_id, user_id, role) VALUES ($1, $2, $3)",
-          [communityId, userId, "creator"],
-        );
-    
+    await pool.query(
+      "INSERT INTO community_memberships (community_id, user_id, role) VALUES ($1, $2, $3)",
+      [communityId, userId, "creator"],
+    );
+
     // After creating the community, create a corresponding chat
-    const chatResult = await pool.query(
+    await pool.query(
       `INSERT INTO chats (chat_id, chat_type) 
        VALUES ($1, 'community') 
        RETURNING *`,
-      [result.rows[0].community_id]
+      [result.rows[0].community_id],
     );
 
     // Add the creator as a participant in the chat
     await pool.query(
       `INSERT INTO chat_participants (chat_id, user_id) 
        VALUES ($1, $2::uuid)`,
-      [result.rows[0].community_id, userId]
+      [result.rows[0].community_id, userId],
     );
 
     res.status(201).json(result.rows[0]);
   } catch (error) {
     console.error("Error creating community:", error);
-    res.status(500).json({ message: "Error creating community", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error creating community", error: error.message });
   }
 };
-
 
 exports.getCommunityDetails = async (req, res) => {
   const { communityId } = req.params;
@@ -190,6 +190,12 @@ exports.joinCommunity = async (req, res) => {
       [communityId, userId, "member"],
     );
 
+    await pool.query(
+      `INSERT INTO chat_participants (chat_id, user_id) 
+       VALUES ($1, $2::uuid)`,
+      [communityId, userId],
+    );
+
     res.status(201).json({ message: "Joined community successfully" });
   } catch (error) {
     logger.error("Error joining community:", error);
@@ -212,6 +218,11 @@ exports.leaveCommunity = async (req, res) => {
         .status(404)
         .json({ message: "You are not a member of this community" });
     }
+
+    await pool.query(
+      `DELETE FROM chat_participants WHERE chat_id = $1 AND user_id = $2`,
+      [communityId, userId],
+    );
 
     res.json({ message: "Left community successfully" });
   } catch (error) {
