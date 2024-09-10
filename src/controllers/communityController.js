@@ -108,7 +108,22 @@ exports.getCommunityDetails = async (req, res) => {
 
 exports.getAllCommunities = async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM community");
+    const result = await pool.query(`
+SELECT 
+    c.community_id,
+    c.name,
+    c.description,
+    c.created_by,
+    c.created_at,
+    COUNT(cm.user_id) AS member_count
+FROM 
+    community c
+LEFT JOIN 
+    community_memberships cm ON c.community_id = cm.community_id
+GROUP BY 
+    c.community_id, c.name, c.description, c.created_by, c.created_at
+ORDER BY 
+    c.created_at DESC;`);
 
     if (result.rows.length === 0) {
       return res.status(404).json({ message: "No Community Founded" });
