@@ -114,7 +114,7 @@ exports.getAllCommunities = async (req, res) => {
       return res.status(404).json({ message: "No Community Founded" });
     }
 
-    res.json(result.rows[0]);
+    res.json(result.rows);
   } catch (error) {
     logger.error("Error fetching communities details:", error);
     res.status(500).json({ message: "Error fetching community details" });
