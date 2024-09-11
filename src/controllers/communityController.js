@@ -1,47 +1,6 @@
 const { pool } = require("../config/database");
 const { logger } = require("../utils/logger");
 
-// exports.createCommunity = async (req, res) => {
-//   const { name, description } = req.body;
-//   const createdBy = req.user.userId;
-
-//   try {
-//     const result = await pool.query(
-//       "INSERT INTO community (name, description, created_by) VALUES ($1, $2, $3) RETURNING *",
-//       [name, description, createdBy],
-//     );
-
-//     const communityId = result.rows[0].community_id;
-
-//     // Add the creator as a member with 'creator' role
-//     await pool.query(
-//       "INSERT INTO community_memberships (community_id, user_id, role) VALUES ($1, $2, $3)",
-//       [communityId, createdBy, "creator"],
-//     );
-
-//     await pool.query(
-//       `
-//       WITH new_chat AS (
-//         INSERT INTO chats (chat_type) VALUES ('community') RETURNING chat_id
-//       )
-//       INSERT INTO chat_participants (chat_id, user_id)
-//       SELECT chat_id, unnest(ARRAY[$1, $2])
-//       FROM new_chat
-//       RETURNING chat_id
-//     `,
-//       [communityId, createdBy],
-//     );
-
-//     console.log("Community created successfully");
-//     console.log(result.rows[0]);
-
-//     res.status(201).json(result.rows[0]);
-//   } catch (error) {
-//     logger.error("Error creating community:", error);
-//     res.status(500).json({ message: "Error creating community" });
-//   }
-// };
-
 exports.createCommunity = async (req, res) => {
   const { name, description } = req.body;
   const userId = req.user.userId; // Assuming this is already a UUID
