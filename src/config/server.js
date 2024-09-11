@@ -48,7 +48,7 @@ const helmet = require("helmet");
 const compression = require("compression");
 const { errorHandler } = require("../middleware/errorHandler");
 const { setupWebRTC } = require("../services/webRTC");
-const setupChatSocketIO = require("../services/chatSocketIO");
+const setupChatSocketIO = require("../services/setupChatSocketIO");
 
 const createServer = (app) => {
   app.use(

@@ -87,3 +87,4 @@
 {"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-09T15:38:27.264Z"}
 {"level":"info","message":"Server running on port 5000","timestamp":"2024-09-09T15:51:50.191Z"}
 {"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-09T15:51:56.152Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-11T09:06:43.324Z"}
