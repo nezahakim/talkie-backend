@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const { pool } = require("../config/database");
 const { logger } = require("../utils/logger");
 
+// const chatController = require("../controllers/chatController");
+
 const setupChatSocketIO = (io) => {
   io.use(async (socket, next) => {
     const token = socket.handshake.auth.token;
@@ -23,6 +25,61 @@ const setupChatSocketIO = (io) => {
     // Join user to their chat rooms
     joinUserRooms(socket);
 
+    socket.on("listAllChats", async (data) => {
+      const { chatId } = data;
+      const limit = 50;
+      const offset = 0;
+      const userId = socket.user.userId;
+
+      try {
+        // Check if user is a participant in the chat
+        const participantCheck = await pool.query(
+          "SELECT * FROM chat_participants WHERE chat_id = $1 AND user_id = $2",
+          [chatId, userId],
+        );
+
+        if (participantCheck.rows.length === 0) {
+          console.log("You do not have access to this chat");
+        }
+
+        const result = await pool.query(
+          `
+          SELECT 
+              cm.message_id, 
+              cm.user_id, 
+              u.username, 
+              u.profile_picture, 
+              a.full_name,           -- Adding the user's name from the accounts table
+              cm.message, 
+              cm.pinned, 
+              cm.created_at
+          FROM 
+              chat_messages cm
+          JOIN 
+              users u ON cm.user_id = u.user_id
+          JOIN 
+              accounts a ON u.user_id = a.user_id   -- Join with accounts table to get the name
+          WHERE 
+              cm.chat_id = $1
+          ORDER BY 
+              cm.created_at ASC
+          LIMIT 
+              $2 
+          OFFSET 
+              $3;
+
+        `,
+          [chatId, limit, offset],
+        );
+
+        // console.log(result.rows)
+        // Emit message to a user in the chat room
+        io.to(socket.id).emit("ListAllChats", result.rows);
+      } catch (error) {
+        logger.error("Error fetching chat messages:", error);
+      }
+    });
+
     // Handle new messages
     socket.on("sendMessage", async (data) => {
       try {
@@ -37,8 +94,18 @@ const setupChatSocketIO = (io) => {
 
         const newMessage = result.rows[0];
 
+        const result0 = await pool.query(
+          `
+          SELECT cm.message_id, cm.user_id, u.username, u.profile_picture, cm.message, cm.pinned, cm.created_at
+          FROM chat_messages cm
+          JOIN users u ON cm.user_id = u.user_id
+          WHERE cm.chat_id = $1 AND cm.message_id = $2
+        `,
+          [chatId, newMessage.message_id],
+        );
+
         // Emit message to all users in the chat room
-        io.to(chatId).emit("newMessage", newMessage);
+        io.to(chatId).emit("newMessage", result0.rows[0]);
       } catch (error) {
         logger.error("Error sending message:", error);
         socket.emit("error", { message: "Error sending message" });
