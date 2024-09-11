@@ -5,81 +5,48 @@ exports.getAllChats = async (req, res) => {
   const userId = req.user.userId;
 
   try {
-    // const query = `
-    //   SELECT
-    //     c.chat_id,
-    //     c.chat_type,
-    //     c.created_at,
-    //     CASE
-    //       WHEN c.chat_type = 'private' THEN u.username
-    //       WHEN c.chat_type = 'community' THEN comm.name
-    //       ELSE 'Unknown'
-    //     END AS chat_name,
-    //     CASE
-    //       WHEN c.chat_type = 'private' THEN u.profile_picture
-    //       ELSE NULL
-    //     END AS chat_icon,
-    //     cm.message AS last_message,
-    //     cm.created_at AS last_message_time
-    //   FROM chats c
-    //   LEFT JOIN chat_participants cp ON c.chat_id = cp.chat_id
-    //   LEFT JOIN users u ON c.chat_type = 'private' AND cp.user_id != $1 AND cp.user_id = u.user_id
-    //   LEFT JOIN community comm ON c.chat_type = 'community' AND c.chat_id = comm.community_id
-    //   LEFT JOIN (
-    //     SELECT chat_id, message, created_at
-    //     FROM chat_messages
-    //     WHERE (chat_id, created_at) IN (
-    //       SELECT chat_id, MAX(created_at)
-    //       FROM chat_messages
-    //       GROUP BY chat_id
-    //     )
-    //   ) cm ON c.chat_id = cm.chat_id
-    //   WHERE cp.user_id = $1 OR comm.created_by = $1
-    //   ORDER BY COALESCE(cm.created_at, c.created_at) DESC
-    // `;
-
-    const query = `SELECT 
-    c.chat_id, 
-    c.chat_type, 
-    c.created_at,
-    CASE 
-        WHEN c.chat_type = 'private' THEN acc.full_name
-        WHEN c.chat_type = 'community' THEN comm.name
-        ELSE 'Unknown'
-    END AS chat_name,
-    CASE 
-        WHEN c.chat_type = 'private' THEN u.profile_picture 
-        ELSE NULL 
-    END AS chat_icon,
-    cm.message AS last_message, 
-    cm.created_at AS last_message_time
-FROM chats c
-LEFT JOIN chat_participants cp 
-    ON c.chat_id = cp.chat_id
-LEFT JOIN users u 
-    ON c.chat_type = 'private' 
-    AND cp.user_id != $1 
-    AND cp.user_id = u.user_id
-LEFT JOIN accounts acc 
-    ON u.user_id = acc.user_id -- Use full_name from the accounts table
-LEFT JOIN community comm 
-    ON c.chat_type = 'community' 
-    AND c.chat_id = comm.community_id
-LEFT JOIN (
-    SELECT chat_id, message, created_at
-    FROM chat_messages
-    WHERE (chat_id, created_at) IN (
-        SELECT chat_id, MAX(created_at)
+    const query = `SELECT
+        c.chat_id,
+        c.chat_type,
+        c.created_at,
+        CASE
+            WHEN c.chat_type = 'private' THEN acc.full_name
+            WHEN c.chat_type = 'community' THEN comm.name
+            ELSE 'Unknown'
+        END AS chat_name,
+        CASE
+            WHEN c.chat_type = 'private' THEN u.profile_picture
+            ELSE NULL
+        END AS chat_icon,
+        cm.message AS last_message,
+        cm.created_at AS last_message_time
+    FROM chats c
+    LEFT JOIN chat_participants cp
+        ON c.chat_id = cp.chat_id
+    LEFT JOIN users u
+        ON c.chat_type = 'private'
+        AND cp.user_id != $1
+        AND cp.user_id = u.user_id
+    LEFT JOIN accounts acc
+        ON u.user_id = acc.user_id -- Use full_name from the accounts table
+    LEFT JOIN community comm
+        ON c.chat_type = 'community'
+        AND c.chat_id = comm.community_id
+    LEFT JOIN (
+        SELECT chat_id, message, created_at
         FROM chat_messages
-        GROUP BY chat_id
-    )
-) cm 
-    ON c.chat_id = cm.chat_id
-WHERE cp.user_id = $1 
-   OR comm.created_by = $1
-GROUP BY c.chat_id, c.chat_type, acc.full_name, comm.name, u.profile_picture, cm.message, cm.created_at
-ORDER BY COALESCE(cm.created_at, c.created_at) DESC;
-`;
+        WHERE (chat_id, created_at) IN (
+            SELECT chat_id, MAX(created_at)
+            FROM chat_messages
+            GROUP BY chat_id
+        )
+    ) cm
+        ON c.chat_id = cm.chat_id
+    WHERE cp.user_id = $1
+       OR comm.created_by = $1
+    GROUP BY c.chat_id, c.chat_type, acc.full_name, comm.name, u.profile_picture, cm.message, cm.created_at
+    ORDER BY COALESCE(cm.created_at, c.created_at) DESC;
+    `;
 
     const result = await pool.query(query, [userId]);
 
