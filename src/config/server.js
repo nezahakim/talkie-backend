@@ -32,6 +32,9 @@ const createServer = (app) => {
   // const io = socketIO(server, { transports: ["websocket"] });
   const io = socketIO(server, {
     transports: ["websocket"], // Ensure WebSocket transport is enabled
+    reconnection: true,
+    reconnectionAttempts: 5, // Number of reconnection attempts
+    reconnectionDelay: 5000,
   });
 
   // Setup Socket.IO
