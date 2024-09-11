@@ -50,12 +50,16 @@ const { errorHandler } = require("../middleware/errorHandler");
 const { setupWebRTC } = require("../services/webRTC");
 const setupChatSocketIO = require("../services/setupChatSocketIO");
 
+const API =
+  "https://94458d4a-03fc-40fe-9c73-a107faef071c-00-126sm7vflti8p.spock.replit.dev:5173";
+
 const createServer = (app) => {
   app.use(
     cors({
       origin: [
         "https://talkie-two.vercel.app",
         "https://talkie-back.vercel.app",
+        API,
       ],
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization", "x-auth-token"],
