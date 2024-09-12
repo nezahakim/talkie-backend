@@ -408,3 +408,134 @@
 {"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-11T13:50:21.235Z"}
 {"level":"info","message":"Server running on port 5000","timestamp":"2024-09-11T14:28:15.221Z"}
 {"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-11T14:28:21.924Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-11T14:48:12.050Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-11T14:48:17.872Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T13:12:18.366Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T13:12:25.034Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T13:30:35.452Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T13:30:40.411Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T13:42:08.748Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T13:42:37.307Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T14:15:50.491Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T14:15:57.967Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T14:21:07.509Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T14:21:13.288Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T14:44:39.325Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T14:46:08.695Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:15:31.102Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:16:18.343Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:17:36.098Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:24.007Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:24.540Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:45.294Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:46.611Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:50.897Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:19:51.339Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:20:11.295Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:20:11.708Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:20:15.101Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:20:15.502Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:26:21.922Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:26:35.617Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:27:04.401Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T15:29:01.216Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T16:30:19.945Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T16:30:25.984Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:31:10.357Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:31:51.666Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:31:59.113Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:34:57.473Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:36:01.303Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:36:02.267Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:36:36.039Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:39:36.620Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:42:12.913Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T16:42:18.919Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T16:43:09.378Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:43:13.576Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T16:43:15.557Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:43:18.040Z"}
+{"level":"error","message":"Error fetching user profile: pool is not defined","stack":"ReferenceError: pool is not defined\n    at /home/runner/talkie-backend/src/routes/userRoutes.js:49:20\n    at Layer.handle [as handle_request] (/home/runner/talkie-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/runner/talkie-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/runner/talkie-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/runner/talkie-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /home/runner/talkie-backend/node_modules/express/lib/router/index.js:284:15\n    at param (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:365:14)\n    at param (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:376:14)\n    at Function.process_params (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:421:3)\n    at next (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:280:10)","timestamp":"2024-09-12T16:43:19.063Z"}
+{"level":"error","message":"Error fetching user profile: pool is not defined","stack":"ReferenceError: pool is not defined\n    at /home/runner/talkie-backend/src/routes/userRoutes.js:49:20\n    at Layer.handle [as handle_request] (/home/runner/talkie-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/runner/talkie-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/runner/talkie-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/runner/talkie-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /home/runner/talkie-backend/node_modules/express/lib/router/index.js:284:15\n    at param (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:365:14)\n    at param (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:376:14)\n    at Function.process_params (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:421:3)\n    at next (/home/runner/talkie-backend/node_modules/express/lib/router/index.js:280:10)","timestamp":"2024-09-12T16:43:19.551Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T16:48:30.624Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T16:48:37.253Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:50:15.040Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:52:06.470Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:52:24.330Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T16:52:29.598Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:03:56.796Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:04:08.243Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:16:55.388Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:17:01.655Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:22:12.390Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:22:16.788Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:23:19.991Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:23:25.373Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:24:02.592Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:24:08.212Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:25:10.121Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:25:14.617Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T17:26:53.107Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T17:26:59.760Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:26:59.978Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:27:05.012Z"}
+{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":197,"level":"error","line":"647","message":"Error fetching user profile: operator does not exist: uuid = text","name":"error","position":"723","routine":"op_error","severity":"ERROR","stack":"error: operator does not exist: uuid = text\n    at /home/runner/talkie-backend/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.getUserProfileByUsername (/home/runner/talkie-backend/src/controllers/userController.js:41:20)","timestamp":"2024-09-12T17:27:05.577Z"}
+{"code":"42883","file":"parse_oper.c","hint":"No operator matches the given name and argument types. You might need to add explicit type casts.","length":197,"level":"error","line":"647","message":"Error fetching user profile: operator does not exist: uuid = text","name":"error","position":"723","routine":"op_error","severity":"ERROR","stack":"error: operator does not exist: uuid = text\n    at /home/runner/talkie-backend/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.getUserProfileByUsername (/home/runner/talkie-backend/src/controllers/userController.js:41:20)","timestamp":"2024-09-12T17:27:06.098Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T17:30:25.406Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T17:30:30.315Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T17:34:21.960Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T17:34:27.734Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:36:09.745Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:36:14.533Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:41:15.256Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:41:21.252Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:42:21.944Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:42:27.132Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:49:30.017Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T17:49:34.871Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-12T18:04:17.295Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-12T18:04:23.246Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:05:17.835Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:05:35.176Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:05:44.624Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:05:46.026Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:06:08.257Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:10:43.610Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:13:02.150Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:13:11.096Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:13:14.509Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:13:33.139Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:13:36.653Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:13:58.087Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:16:37.778Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:16:59.416Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:17:02.221Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:17:18.570Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:17:25.788Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:18:06.901Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:19:32.935Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:19:33.290Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:21:47.633Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:21:50.135Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:22:13.178Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:22:49.537Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:22:50.700Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:23:48.671Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:23:51.589Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:29.276Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:30.160Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:39.313Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:39.869Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:42.378Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:42.722Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:26:44.144Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:44.274Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:26:44.596Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:26:44.921Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:26:45.146Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:27:24.322Z"}
+{"level":"info","message":"User connected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:27:24.826Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:27:26.302Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:27:28.279Z"}
+{"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:27:51.198Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:27:51.265Z"}

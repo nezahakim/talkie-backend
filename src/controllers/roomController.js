@@ -2,8 +2,14 @@ const { pool } = require("../config/database");
 const { logger } = require("../utils/logger");
 
 exports.createRoom = async (req, res) => {
-  const { title, description, language, isPrivate, isTemporary, autoDelete } =
-    req.body;
+  const {
+    session_title,
+    description,
+    language,
+    is_private,
+    isTemporary = true,
+    autoDelete = true,
+  } = req.body;
   const hostUserId = req.user.userId;
 
   try {
@@ -14,17 +20,29 @@ exports.createRoom = async (req, res) => {
        RETURNING *`,
       [
         hostUserId,
-        title,
+        session_title,
         description,
         language,
-        isPrivate,
+        is_private,
         isTemporary,
         autoDelete,
       ],
     );
 
     const room = result.rows[0];
-    res.status(201).json(room);
+
+    const add_participant = await pool.query(
+      `INSERT INTO participants
+       (session_id, user_id, joined_at, is_anonymous) 
+       VALUES($1, $2, CURRENT_TIMESTAMP, false)  RETURNING *`,
+      [room.session_id, hostUserId],
+    );
+
+    if (add_participant) {
+      res.status(201).json(room);
+    } else {
+      logger.error("Error adding the creator of the room:", error);
+    }
   } catch (error) {
     logger.error("Error creating room:", error);
     res.status(500).json({ message: "Error creating room" });

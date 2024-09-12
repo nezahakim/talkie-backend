@@ -74,10 +74,11 @@ exports.getAllChats = async (req, res) => {
       return res.json([]);
     }
 
-    console.log(
-      `Found ${result.rows.length} chats/communities for user:`,
-      userId,
-    );
+    // console.log(
+    //   `Found ${result.rows.length} chats/communities for user:`,
+    //   userId,
+    // );
+
     res.json(result.rows);
   } catch (error) {
     console.error("Error fetching all chats:", error);
