@@ -15,10 +15,5 @@
       "src": "/socket.io/(.*)",
       "dest": "/src/api.js"
     }
-  ],
-  "functions": {
-    "src/app.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
