@@ -93,10 +93,14 @@ exports.getChatMessages = async (req, res) => {
   const { limit = 50, offset = 0 } = req.query;
   const userId = req.user.userId;
 
+  console.log(userId);
+
   try {
     // Check if user is a participant in the chat
     const participantCheck = await pool.query(
-      "SELECT * FROM chat_participants WHERE chat_id = $1 AND user_id = $2",
+      `SELECT * FROM chat_participants 
+       INNER JOIN chats ON chat_participants.chat_id = chats.chat_id 
+       WHERE chat_participants.chat_id = $1 AND chat_participants.user_id = $2 AND NOT chats.chat_type = 'private' `,
       [chatId, userId],
     );
 
