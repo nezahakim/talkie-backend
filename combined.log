@@ -539,3 +539,12 @@
 {"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:27:28.279Z"}
 {"level":"info","message":"User disconnected: 86dea22a-6572-49dc-bd5e-433dcd97a301","timestamp":"2024-09-12T18:27:51.198Z"}
 {"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-12T18:27:51.265Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-15T13:15:38.237Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-15T13:15:43.961Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-15T13:40:16.385Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-15T13:40:22.983Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-15T13:41:20.856Z"}
+{"level":"info","message":"User connected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-15T13:42:07.995Z"}
+{"level":"info","message":"User disconnected: c80ed888-571b-4480-bf71-751ebb1cca90","timestamp":"2024-09-15T13:42:22.397Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2024-09-15T13:44:18.734Z"}
+{"level":"info","message":"Connected to PostgreSQL database","timestamp":"2024-09-15T13:44:26.192Z"}

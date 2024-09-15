@@ -13,7 +13,7 @@
     },
     {
       "src": "/socket.io/(.*)",
-      "dest": "/src/socket.io.js"
+      "dest": "/src/api.js"
     }
   ],
   "functions": {
