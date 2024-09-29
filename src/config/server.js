@@ -9,7 +9,7 @@ const { setupWebRTC } = require("../services/webRTC");
 const setupChatSocketIO = require("../services/setupChatSocketIO");
 
 const API =
-  "https://94458d4a-03fc-40fe-9c73-a107faef071c-00-126sm7vflti8p.spock.replit.dev:5173";
+  "https://super-bassoon-4j7vjrwggw59cjg7x-5173.app.github.dev";
 
 const createServer = (app) => {
   app.use(
